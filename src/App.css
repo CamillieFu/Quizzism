@@ -59,3 +59,9 @@ body {
   background-color: #ddd3ee;
   border: none;
 }
+
+.answer-div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
