@@ -5,14 +5,15 @@ import data from '../data'
 
 export default function Quiz() {
     const [trivia, setTrivia] = React.useState(data)
+    const [score, setScore] = React.useState(0)
+    const [submit, setSubmit] = React.useState(false)
 
     function handleClick(id) {
-      const newTriv = trivia
-      const array = newTriv.map((item) => {
+      const array = trivia.map((item) => {
         const answers = item.answers.map((ans) => {
           return {
             answer: ans.answer,
-            selected: ans.id === id ? true : false,
+            selected: ans.id === id ? !ans.selected : ans.selected,
             id: ans.id,
             true: ans.true
           }
@@ -22,6 +23,18 @@ export default function Quiz() {
       }
         )
         setTrivia(array)
+    }
+
+    function handleSubmit() {
+      let count = 0;
+      trivia.map((item) => (
+        item.answers.map((ans) => {
+          return ans.selected && ans.true ? count++ :
+          count
+        })
+      ))
+        setScore(count);
+        setSubmit(true);
     }
 
     const triviaElements = trivia.map((item) => (
@@ -49,7 +62,13 @@ export default function Quiz() {
           <img src={greyBlob} className="grey-blob" alt="grey blob"/>
           <div className="quiz-container">
             <ul>{triviaElements}</ul>
-            <button className="submit-button">Check Answers</button>
+            <button
+              className="submit-button"
+              onClick={handleSubmit}
+              >
+                Check Answers
+            </button>
+            {submit && <span>Your score is {score}/3</span>}
           </div>
         </>
     )
