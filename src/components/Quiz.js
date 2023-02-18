@@ -81,8 +81,10 @@ export default function Quiz() {
           {item.answers.map((answer) => {
             return(
               <li
-                className={answer.selected ? "selected-answer trivia-answer" : "trivia-answer"}
+                className={`trivia-answer ${answer.selected ? "selected-answer" : ""}
+                ${submit && answer.selected && !answer.true ? "false-answer" : ""}`}
                 key={answer.id}
+                id={submit && answer.true ? "correct-answer" : ""}
                 onClick={() => handleClick(answer.id)}
               >
                   {answer.answer}
@@ -94,20 +96,19 @@ export default function Quiz() {
     ))
 
     return (
-        <>
-          <img src={greenBlob} className="green-blob" alt="green blob"/>
-          <img src={greyBlob} className="grey-blob" alt="grey blob"/>
+        <div className="container">
           <div className="quiz-container">
-            <ul>{triviaElements}</ul>
+            <img src={greenBlob} className="green-blob" alt="green blob"/>
+            <img src={greyBlob} className="grey-blob" alt="grey blob"/>
+            <span>{triviaElements}</span>
             <button
               className="submit-button"
               onClick={submit ? newQuestions : handleSubmit}
               >
                 {submit ? "Play Again" : "Check Answers"}
             </button>
-            {/* <button onClick={newQuestions}>Play Again</button> */}
             {submit && <span>Your score is {score}/3</span>}
           </div>
-        </>
+        </div>
     )
 }

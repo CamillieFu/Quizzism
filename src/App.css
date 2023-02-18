@@ -10,13 +10,23 @@ body {
   align-items: center;
   align-content: center;
   width: 100vw;
-  height: 100vh;
 }
 
 .quiz-container {
   flex-direction: column;
+  /* padding: 24px 0px; */
 }
 
+.quiz-container span {
+  padding: 2rem;
+}
+.main-container {
+  height: 100vh;
+}
+
+.container {
+  position: absolute;
+}
 .start-button,
 .submit-button {
   background-color: #6375CE;
@@ -42,6 +52,7 @@ body {
   bottom: 0;
   z-index: -1;
   left: 0;
+  background-attachment: scroll;
 }
 
 .trivia-answer {
@@ -64,4 +75,24 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+#correct-answer {
+  background-color: rgb(153, 225, 153);
+}
+
+.false-answer {
+  background-color: rgb(240, 161, 161);
+}
+
+@media (min-width: 806px) {
+.quiz-container .grey-blob {
+    bottom: -53px;
+  }
+}
+
+@media (min-width: 836px) {
+  .quiz-container .grey-blob {
+      bottom: -135px;
+  }
 }
