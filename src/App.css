@@ -19,6 +19,7 @@ body {
 
 .quiz-container span {
   padding: 2rem;
+  margin-top: 1.5rem;
 }
 .main-container {
   height: 100vh;
@@ -48,11 +49,10 @@ body {
 }
 
 .grey-blob {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   z-index: -1;
   left: 0;
-  background-attachment: scroll;
 }
 
 .trivia-answer {
@@ -83,16 +83,4 @@ body {
 
 .false-answer {
   background-color: rgb(240, 161, 161);
-}
-
-@media (min-width: 806px) {
-.quiz-container .grey-blob {
-    bottom: -53px;
-  }
-}
-
-@media (min-width: 836px) {
-  .quiz-container .grey-blob {
-      bottom: -135px;
-  }
 }
