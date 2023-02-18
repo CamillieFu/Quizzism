@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import greenBlob from '../images/blob_green.png'
 import greyBlob from '../images/blob_grey.png'
 import data from '../data'
+import { nanoid } from 'nanoid'
+import { Buffer } from 'buffer'
+
 
 export default function Quiz() {
-    const [trivia, setTrivia] = React.useState(data)
+    const [options, setOptions] = useState(data);
+    const [trivia, setTrivia] = React.useState(options)
     const [score, setScore] = React.useState(0)
     const [submit, setSubmit] = React.useState(false)
+
+    useEffect(() => {
+	    const apiUrl = `https://opentdb.com/api.php?amount=3&encode=base64`;
+
+	    fetch(apiUrl)
+	      .then((res) => res.json())
+	      .then((response) => {
+	        setOptions(response.results);
+	      });
+	  }, [newQuestions]);
 
     function handleClick(id) {
       const array = trivia.map((item) => {
@@ -23,6 +37,29 @@ export default function Quiz() {
       }
         )
         setTrivia(array)
+    }
+
+    function newQuestions() {
+      const newArray = options.map((item) => {
+      const answers = []
+      const trueAnswer = { answer: Buffer.from(item.correct_answer, 'base64').toString(), selected: false, true: true, id: nanoid()}
+      answers.push(trueAnswer);
+
+      item.incorrect_answers.map((ans) => {
+        const falseAnswer = {answer: Buffer.from(ans, 'base64').toString(), selected: false, true: false, id: nanoid()}
+        return answers.push(falseAnswer);
+      })
+
+      return {
+        question: Buffer.from(item.question, 'base64').toString(),
+        id: nanoid(),
+        answers: answers
+      }
+    })
+      setTrivia(newArray)
+      setOptions(options)
+      setScore(0)
+      setSubmit(false)
     }
 
     function handleSubmit() {
@@ -64,10 +101,11 @@ export default function Quiz() {
             <ul>{triviaElements}</ul>
             <button
               className="submit-button"
-              onClick={handleSubmit}
+              onClick={submit ? newQuestions : handleSubmit}
               >
-                Check Answers
+                {submit ? "Play Again" : "Check Answers"}
             </button>
+            {/* <button onClick={newQuestions}>Play Again</button> */}
             {submit && <span>Your score is {score}/3</span>}
           </div>
         </>
