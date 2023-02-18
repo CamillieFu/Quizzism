@@ -76,7 +76,7 @@ export default function Quiz() {
 
     const triviaElements = trivia.map((item) => (
       <>
-        <h4 key={item.id}>{item.question}</h4>
+        <h4 className="trivia-question"key={item.id}>{item.question}</h4>
         <div className="answer-div">
           {item.answers.map((answer) => {
             return(
