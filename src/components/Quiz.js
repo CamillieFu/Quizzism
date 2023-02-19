@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import greenBlob from '../images/blob_green.png'
-import greyBlob from '../images/blob_grey.png'
 import data from '../data'
 import { nanoid } from 'nanoid'
 import { Buffer } from 'buffer'
+import background from '../images/blue_background.jpg'
 
 
 export default function Quiz() {
@@ -39,6 +38,7 @@ export default function Quiz() {
         setTrivia(array)
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     function newQuestions() {
       const newArray = options.map((item) => {
       const answers = []
@@ -96,10 +96,8 @@ export default function Quiz() {
     ))
 
     return (
-        <div className="container">
+        <div className="container" style={{ backgroundImage: `url(${background})`, backgroundRepeat:"no-repeat", backgroundSize:"cover"  }}>
           <div className="quiz-container">
-            <img src={greenBlob} className="green-blob" alt="green blob"/>
-            <img src={greyBlob} className="grey-blob" alt="grey blob"/>
             <span>{triviaElements}</span>
             <div className="submit-div">
               {submit && <p className="score-display">Your score is {score}/3</p>}

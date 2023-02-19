@@ -1,6 +1,5 @@
 import React from 'react'
-import greenBlob from '../images/blob_green.png'
-import greyBlob from '../images/blob_grey.png'
+import background from '../images/blue_background.jpg'
 import Quiz from './Quiz'
 
 export default function Main() {
@@ -13,9 +12,7 @@ export default function Main() {
     function Homescreen() {
         return(
             <>
-                <img src={greenBlob} className="green-blob"/>
-                <img src={greyBlob} className="grey-blob"/>
-                <div className="main-container">
+                <div className="main-container" style={{ backgroundImage: `url(${background})`, backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
                     <button className="start-button" onClick={handleClick}>Start Quiz</button>
                 </div>
             </>
