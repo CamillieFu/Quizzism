@@ -101,13 +101,15 @@ export default function Quiz() {
             <img src={greenBlob} className="green-blob" alt="green blob"/>
             <img src={greyBlob} className="grey-blob" alt="grey blob"/>
             <span>{triviaElements}</span>
-            <button
-              className="submit-button"
-              onClick={submit ? newQuestions : handleSubmit}
-              >
-                {submit ? "Play Again" : "Check Answers"}
-            </button>
-            {submit && <span>Your score is {score}/3</span>}
+            <div className="submit-div">
+              {submit && <p className="score-display">Your score is {score}/3</p>}
+              <button
+                className="submit-button"
+                onClick={submit ? newQuestions : handleSubmit}
+                >
+                  {submit ? "Play Again" : "Check Answers"}
+              </button>
+            </div>
           </div>
         </div>
     )

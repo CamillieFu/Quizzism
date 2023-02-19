@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #ddd3ee30;
 }
 
 .main-container,
@@ -21,6 +22,7 @@ body {
   text-align: center;
   padding: 2rem;
   margin-top: 1.5rem;
+  width: 75vw;
 }
 .main-container {
   height: 100vh;
@@ -40,10 +42,11 @@ body {
 
 .submit-button {
   margin-bottom: 50px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .green-blob {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: -1;
@@ -91,9 +94,24 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
+  text-shadow: 0.3px 0.3px #8d8d8d;
 }
 
 .trivia-answer {
   font-family: 'Nunito', sans-serif;
   font-size: 0.82rem;
+}
+
+.score-display {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  margin-right: 24px;
+}
+
+.submit-div {
+  display: flex;
+  justify-content: space-around;
 }
