@@ -57,6 +57,7 @@ export default function Quiz() {
     }
       return array;
     }
+
     function componentDidMount() {
       window.scrollTo(0, 0)
     }
