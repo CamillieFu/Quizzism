@@ -20,7 +20,6 @@ body {
 .quiz-container span {
   text-align: center;
   padding: 2rem;
-  margin-top: 1.5rem;
   width: 75vw;
 }
 .main-container {
@@ -52,23 +51,9 @@ body {
   box-shadow: #6665b2 3px 3px 3px 0px inset, #6a69b3 -3px -3px 3px 1px inset;
 }
 
-/* .green-blob {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: -1;
-}
-
-.grey-blob {
-  position: fixed;
-  bottom: 0;
-  z-index: -1;
-  left: 0;
-} */
-
 .trivia-answer {
   display: inline-block;
-  margin: 16px;
+  margin: 8px;
   background-color: #FFFFFF;
   padding: 14px 20px;
   border-radius: 15px;
@@ -99,12 +84,12 @@ body {
 }
 
 .trivia-question {
-  border-radius: 30px;
+  border-radius: 1px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: #FFFFFF;
+  background-color: #f7f3f3;
   padding: 24px 36px;
   font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   text-shadow: 0.3px 0.3px #8d8d8d;
 }
@@ -135,4 +120,10 @@ body {
   position: fixed;
   bottom: -150px;
   right: -50px;
+}
+
+@media (min-width: 600px) {
+  .quiz-container span {
+    max-width: 60vw;
+  }
 }
