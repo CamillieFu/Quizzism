@@ -32,7 +32,8 @@ body {
 }
 .start-button,
 .submit-button {
-  background-color: #a6a6a7;
+  font-family: 'Nunito', sans-serif;
+  background-color: #7776d3;
   border: none;
   padding: 16px 24px;
   font-size: 1rem;
@@ -45,11 +46,10 @@ body {
 
 .submit-button {
   margin-bottom: 50px;
-  font-family: 'Nunito', sans-serif;
 }
 
-.submit-button:active {
-  box-shadow: rgb(134, 134, 134) 3px 3px 6px 0px inset, rgba(130, 129, 129, 0.5) -3px -3px 6px 1px inset;
+.submit-button:active, .start-button:active  {
+  box-shadow: #6665b2 3px 3px 3px 0px inset, #6a69b3 -3px -3px 3px 1px inset;
 }
 
 /* .green-blob {
@@ -68,13 +68,14 @@ body {
 
 .trivia-answer {
   display: inline-block;
-  font-size: .8rem;
   margin: 16px;
   background-color: #FFFFFF;
   padding: 14px 20px;
   border-radius: 15px;
-  border: #ddd3ee 1px solid;
+  border: #efecf4 1px solid;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
 }
 
 .selected-answer {
@@ -106,11 +107,6 @@ body {
   font-size: 1.2rem;
   font-weight: 400;
   text-shadow: 0.3px 0.3px #8d8d8d;
-}
-
-.trivia-answer {
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.82rem;
 }
 
 .score-display {

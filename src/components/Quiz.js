@@ -23,6 +23,10 @@ export default function Quiz() {
 	      });
 	  }, [newQuestions]);
 
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+
     function handleClick(id) {
       const array = trivia.map((item) => {
         const answers = item.answers.map((ans) => {
@@ -40,6 +44,22 @@ export default function Quiz() {
         setTrivia(array)
     }
 
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+    }
+      return array;
+    }
+    function componentDidMount() {
+      window.scrollTo(0, 0)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     function newQuestions() {
       const newArray = options.map((item) => {
@@ -55,13 +75,14 @@ export default function Quiz() {
       return {
         question: Buffer.from(item.question, 'base64').toString(),
         id: nanoid(),
-        answers: answers
+        answers: shuffle(answers)
       }
     })
-      setTrivia(newArray)
+      setTrivia(shuffle(newArray))
       setOptions(options)
       setScore(0)
       setSubmit(false)
+      componentDidMount()
     }
 
     function handleSubmit() {
