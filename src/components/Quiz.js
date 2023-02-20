@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import data from '../data'
 import { nanoid } from 'nanoid'
 import { Buffer } from 'buffer'
-import background from '../images/blue_background.jpg'
+import bigCircle from '../images/ellipses_big.png'
+import smallCircle from '../images/ellipses_small.png'
+import purpleCircle from '../images/ellipse_purp.png'
 
 
 export default function Quiz() {
@@ -96,7 +98,10 @@ export default function Quiz() {
     ))
 
     return (
-        <div className="container" style={{ backgroundImage: `url(${background})`, backgroundRepeat:"no-repeat", backgroundSize:"cover"  }}>
+        <div className="container">
+          <img src={bigCircle} className="big-grey-circle" alt="circle" />
+          <img src={smallCircle} className="big-grey-circle" alt="circle" />
+          <img src={purpleCircle} className="big-purple-circle" alt="circle" />
           <div className="quiz-container">
             <span>{triviaElements}</span>
             <div className="submit-div">

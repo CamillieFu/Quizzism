@@ -39,15 +39,20 @@ body {
   font-weight: 800;
   border-radius: 6px;
   color: white;
-  box-shadow: 1px 2px 1px black;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
+
 
 .submit-button {
   margin-bottom: 50px;
   font-family: 'Nunito', sans-serif;
 }
 
-.green-blob {
+.submit-button:active {
+  box-shadow: rgb(134, 134, 134) 3px 3px 6px 0px inset, rgba(130, 129, 129, 0.5) -3px -3px 6px 1px inset;
+}
+
+/* .green-blob {
   position: fixed;
   top: 0;
   right: 0;
@@ -59,7 +64,7 @@ body {
   bottom: 0;
   z-index: -1;
   left: 0;
-}
+} */
 
 .trivia-answer {
   display: inline-block;
@@ -93,8 +98,8 @@ body {
 }
 
 .trivia-question {
-  border-radius: 36px;
-  box-shadow: 1px 2px 1px gray;
+  border-radius: 30px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: #FFFFFF;
   padding: 24px 36px;
   font-family: 'Lato', sans-serif;
@@ -120,4 +125,18 @@ body {
 .submit-div {
   display: flex;
   justify-content: space-around;
+}
+
+.big-grey-circle {
+  z-index: -1;
+  position: fixed;
+  top: -150px;
+  left: -50px;
+}
+
+.big-purple-circle {
+  z-index: -1;
+  position: fixed;
+  bottom: -150px;
+  right: -50px;
 }

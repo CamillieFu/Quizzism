@@ -1,5 +1,8 @@
 import React from 'react'
-import background from '../images/blue_background.jpg'
+import bigCircle from '../images/ellipses_big.png'
+import smallCircle from '../images/ellipses_small.png'
+import purpleCircle from '../images/ellipse_purp.png'
+
 import Quiz from './Quiz'
 
 export default function Main() {
@@ -12,7 +15,10 @@ export default function Main() {
     function Homescreen() {
         return(
             <>
-                <div className="main-container" style={{ backgroundImage: `url(${background})`, backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
+              <img src={bigCircle} className="big-grey-circle" alt="circle" />
+              <img src={smallCircle} className="big-grey-circle" alt="circle" />
+              <img src={purpleCircle} className="big-purple-circle" alt="circle" />
+                <div className="main-container">
                     <button className="start-button" onClick={handleClick}>Start Quiz</button>
                 </div>
             </>
