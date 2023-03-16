@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import data from '../data';
-// nanoid interfering with testing
-import { nanoid } from 'nanoid';
-import { Buffer } from 'buffer';
-import bigCircle from '../images/ellipses_big.png';
-import smallCircle from '../images/ellipses_small.png';
-import purpleCircle from '../images/ellipse_purp.png';
+import React, { useState, useEffect } from 'react'
+import data from '../data'
+import { nanoid } from 'nanoid'
+import { Buffer } from 'buffer'
+import bigCircle from '../images/ellipses_big.png'
+import smallCircle from '../images/ellipses_small.png'
+import purpleCircle from '../images/ellipse_purp.png'
 
 
-export default function Quiz(props) {
+export default function Quiz() {
     const [options, setOptions] = useState(data);
-    const [trivia, setTrivia] = useState(options)
-    const [score, setScore] = useState(0)
-    const [submit, setSubmit] = useState(false)
+    const [trivia, setTrivia] = React.useState(options)
+    const [score, setScore] = React.useState(0)
+    const [submit, setSubmit] = React.useState(false)
 
     useEffect(() => {
 	    const apiUrl = `https://opentdb.com/api.php?amount=3&encode=base64`;

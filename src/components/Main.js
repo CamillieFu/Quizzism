@@ -19,7 +19,7 @@ export default function Main() {
               <img src={smallCircle} className="big-grey-circle" alt="circle" />
               <img src={purpleCircle} className="big-purple-circle" alt="circle" />
                 <div className="main-container">
-                    <button className="start-button" onClick={handleClick}>Start Quiz</button>
+                    <button className="start-button" onClick={handleClick} name={"Start"}>Start Quiz</button>
                 </div>
             </>
         )
